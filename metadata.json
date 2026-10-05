@@ -1,0 +1,6 @@
+{
+  "name": "Harriet Riley - Garage Doors Solihull",
+  "description": "Harriet Riley - Quality garage door supply, precision installation, automation, repair and maintenance in Solihull, England.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

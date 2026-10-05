@@ -1,0 +1,254 @@
+/* ==========================================================================
+   HARRIET RILEY — DESIGN SYSTEM TOKENS & BASE STYLES
+   Minimal, architectural, trades-grade premium aesthetic
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Color Palette (Green & White with disciplined neutrals) */
+  --color-primary: #173829;
+  --color-primary-dark: #0E241A;
+  --color-primary-light: #24523C;
+  --color-accent: #2E6B4F;
+  --color-secondary: #FFFFFF;
+  
+  --color-bg: #FAFAF8;
+  --color-bg-alt: #F2F5F1;
+  --color-surface: #FFFFFF;
+  
+  --color-text: #121C16;
+  --color-text-muted: #526157;
+  --color-text-light: #7E8C82;
+  
+  --color-border: #E1E6E1;
+  --color-border-subtle: #EDF1ED;
+  --color-border-dark: rgba(255, 255, 255, 0.14);
+
+  /* Spacing Scale (4, 8, 16, 24, 32, 48, 64, 96, 128px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+  --space-9: 128px;
+
+  /* Section Padding */
+  --section-padding-y: 96px;
+  --section-padding-x: 24px;
+  --max-content-width: 1200px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-resting: 0 2px 8px rgba(18, 28, 22, 0.04);
+  --shadow-hover: 0 12px 28px rgba(18, 28, 22, 0.10);
+  --shadow-elevated: 0 20px 40px rgba(18, 28, 22, 0.14);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 220ms ease;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section-padding-y: 64px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-padding-y: 48px;
+    --section-padding-x: 16px;
+  }
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+p {
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 65ch;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Layout Utilities */
+.site-container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+}
+
+.section-spacing {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  scroll-margin-top: 80px;
+}
+
+/* Section Eyebrow (Disciplined, no pill enclosure) */
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+
+/* Smooth Focus States for Accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Button Interactive States */
+.custom-btn {
+  text-decoration: none;
+  user-select: none;
+}
+
+.custom-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.custom-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-light) !important;
+  border-color: var(--color-primary-light) !important;
+  box-shadow: var(--shadow-hover) !important;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #FFFFFF !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-dark) !important;
+  box-shadow: var(--shadow-hover) !important;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn-dark:hover:not(:disabled) {
+  background-color: #0E241A !important;
+  box-shadow: var(--shadow-hover) !important;
+}
+
+/* Responsive Navigation Rules */
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+  .mobile-toggle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+/* Clean Image Frame with Fallback Protection */
+.image-cover-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+.image-cover-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
